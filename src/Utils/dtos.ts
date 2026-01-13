@@ -1,6 +1,7 @@
 export interface CreateArticleDto { // ال Dto تعني داتا ترانزفير أوبكجت
     title: string;
     description: string;
+    userId: number; // هذا العنصر سيتم استخراجه من جسد الطلب
 }
 
 export interface UpdateArticleDto {
