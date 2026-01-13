@@ -9,6 +9,7 @@ export const createArticleSchema = z.object({
         .min(2, { message: "title must be more than 2 characters long!" })
         .max(200, { message: "title must be less than 200 characters!" }),//لازم يكون نص واقل شيء حرفين واكثر شيء مئتين حرف
     description: z.string().min(10, "بيانات غير صالحه! أقل شيء عشره احرف"),
+    userId: z.number(),
 });
 
 //Register Schema
