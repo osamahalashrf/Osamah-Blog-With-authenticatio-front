@@ -72,7 +72,8 @@ export async function POST(request: NextRequest) {
         const newArticle: Article = await prisma.article.create({
             data: {
                 title: body.title,
-                description: body.description
+                description: body.description,
+                userId: user.id // ربط المقال بالمستخدم الذي أنشأه
             }
         });
 

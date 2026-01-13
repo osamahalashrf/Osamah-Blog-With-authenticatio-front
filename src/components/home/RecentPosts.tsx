@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { Calendar, User, Eye } from "lucide-react";
 import Link from "next/link";
 import { useTranslations } from "use-intl";
+import { useLocale } from "next-intl";
 
 const recentPosts = [
     {
@@ -47,6 +48,7 @@ const recentPosts = [
 export default function RecentPosts() {
 
     const t = useTranslations("RecentPosts");
+    const locale = useLocale();
 
     return (
         <section className="py-20">
@@ -91,7 +93,7 @@ export default function RecentPosts() {
                                         </div>
                                         <div className="flex items-center gap-1">
                                             <Eye className="w-4 h-4" />
-                                            <span>{post.views.toLocaleString()} مشاهدة</span>
+                                            <span>{post.views.toLocaleString(locale)} مشاهدة</span>
                                         </div>
                                     </div>
 
