@@ -9,133 +9,67 @@ import { getTranslations } from "next-intl/server";
 import { prisma } from "@/Utils/db";
 
 export const metadata: Metadata = {
-  title: "Articles Page",
-  description: "Articles about programming",
+  title: "المقالات التقنية - مدونة التقنية",
+  description: "تصفح أحدث المقالات التقنية في البرمجة والتطوير",
 };
 
 interface ArticlePageProps {
+  params: Promise<{ locale: string }>;
   searchParams: Promise<{ pageNumber: string }>; // إضافة Promise هنا
 }
 
-// type ApiResponse = {
-//   data: Article[];
-//   links: {
-//     next: string | null;
-//     prev: string | null;
-//   };
-//   meta: {
-//     current_page: number;
-//     last_page: number;
-//   };
-// }; تبع لارافل
+export default async function ArticlesPage({ params, searchParams }: ArticlePageProps) {
+  const t = await getTranslations("ArticlesPage");
 
-// type Props = {
-//   searchParams: {
-//     page?: string;
-//     per_page?: string;
-//     searchText?: string;
-//   };
-// }; تبع لارافل
+  const resolvedParams = await searchParams;
+  const pageNumber = resolvedParams?.pageNumber || "1";
 
-export default async function ArticlesPage({ searchParams }: ArticlePageProps) {
-  const t = await getTranslations("ArticlesPage"); // استخدام الترجمة هنا
+  const { locale } = await params;
 
-  // إصلاح: التعامل مع searchParams بشكل صحيح
-  const resolvedSearchParams = await searchParams;
-  const pageNumber = typeof resolvedSearchParams.pageNumber === 'string' 
-    ? resolvedSearchParams.pageNumber 
-    : "1";
-
-    
   const articles: Article[] = await getArticles(pageNumber);
-  //const count: number = await getArticleCount(); استغنينا عن هذا السطر لأننا سنستخدم Prisma لجلب عدد المقالات في السطر الذي بعده مباشرةً.من غير وساطة الإي بي آي
-
-  const count: number = await prisma.article.count(); // الحصول على عدد المقالات من API
+  const count: number = await prisma.article.count();
   const pages = Math.ceil(count / ARTICLE_PER_PAGE);
 
-  // إضافة سجل للتصحيح
-  console.log("DEBUG - ArticlesPage:", {
-    searchParams,
-    pageNumber,
-    articlesCount: articles.length,
-    count
-  });
-
-  // const page = searchParams.page || "1";
-  // const perPage = searchParams.per_page || "6";
-  // const searchText = searchParams.searchText || "";
-  //const locale = await getLocale(); // الحصول على اللغة الحالية من نكست جي اس (Next.js) ، والتي يمكن استخدامها في الترجمة.
-  // const queryParams = new URLSearchParams({
-  //   page,
-  //   per_page: perPage,
-  // });
-
-  // if (searchText) queryParams.set("searchText", searchText); // إذا كان هناك نص بحث، يتم إضافته إلى معلمات الاستعلام (query parameters) للطلب.
-  // إذا لم يكن هناك نص بحث، يتم تجاهل هذا الشرط ولن يتم إضافة معلمة البحث إلى الطلب.
-
-  // const response = await fetch(
-  //   `http://127.0.0.1:8000/api/articles?${queryParams.toString()}`,
-  //   {
-  //     //next: { revalidate: 50 }   يتم تحديث البيانات كل 50 ثانية (revalidate) ، مما يعني أنه سيتم جلب البيانات من الخادم مرة واحدة كل 50 ثانية.
-  //     // هذا الاختيار مفيد عندما نريد التأكد من أن البيانات التي نحصل عليها هي الأحدث دائمًا. ويتم تحديثها كل خمسين ثانية.
-
-  //     cache: "no-store", //  لا يتم تخزين البيانات في الذاكرة المؤقتة (cache) ، بل يتم جلبها من الخادم في كل مرة يتم فيها استدعاء الصفحة.
-  //     // هذا الاختيار مفيد عندما نريد التأكد من أن البيانات التي نحصل عليها هي الأحدث دائمًا.
-  //     // في هذه الحالة، يتم جلب البيانات من واجهة برمجة التطبيقات (API) في كل مرة يتم فيها تحميل الصفحة.
-  //     // لأن الافتراضي هو "default" يتم تخزين البيانات في الذاكرة المؤقتة (cache) الموجود في نكست جي اس (Next.js) ، مما يعني أنه يتم جلب البيانات مرة واحدة فقط عند تحميل الصفحة لأول مرة.
-
-  //     headers: {
-  //       Accept: "application/json",
-  //       "Accept-Language": locale,
-  //     },
-  //   }
-  // ); api from laravel with change the language
-
   return (
-    <section className="text-xl bg-green-400 text-gray-800 font-bold text-center p-5 rounded">
-      {t("title")}
-      <SearchArticleInput />
-      {articles.length === 0 ? (
-        <div className="p-8 text-red-600">
-          <p>لا توجد مقالات متاحة حالياً.</p>
-          <p>تحقق من قاعدة البيانات واتصال API.</p>
+    <section className="min-h-screen py-10 gradient-bg">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
+            {t("title")}
+          </h1>
+          <p className="text-muted-foreground text-lg">
+            {t("subtitle")}
+          </p>
         </div>
-      ) : (
-        <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-            {articles.map((item) => (
-              <ArticleItem article={item} key={item.id} />
-            ))}
-          </div>
 
-      {/* <SearchArticleInput defaultValue={searchText} /> */}
-      {/* {data.length === 0 ? (
-        <div className="mt-6 text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 rounded p-6 shadow">
-          <p className="text-lg">{t("noResults")}</p>
+        <div className="max-w-2xl mx-auto mb-12">
+          <SearchArticleInput />
         </div>
-      ) : (
-        <>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-            {data.map((article) => (
-              <ArticleItem article={article} key={article.id} />
-            ))}
+
+        {articles.length === 0 ? (
+          <div className="text-center py-20">
+            <div className="text-6xl mb-4">📝</div>
+            <h3 className="text-2xl font-bold mb-2">{t("noResults")}</h3>
+            <p className="text-muted-foreground">{t("noResultsDescription")}</p>
           </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+              {articles.map((article, index) => (
+                <ArticleItem key={article.id} article={article} index={index} />
+              ))}
+            </div>
 
-          <Pagination
-            currentPage={meta.current_page}
-            lastPage={meta.last_page}
-            perPage={+perPage}
-          />
-        </>
-      )} يخص لارافل
-      */}
-
-      <Pagination pageNumber={parseInt(pageNumber)} route="/articles" pages={pages} />
-      </>
-      )}
+            {pages > 1 && (
+              <Pagination
+                pageNumber={parseInt(pageNumber)}
+                pages={pages}
+                route={`/${locale}/articles`}
+              />
+            )}
+          </>
+        )}
+      </div>
     </section>
   );
 }
-
-// السبب الذي يجعلنا نعرف هذا الفانكشن هنا لأننا سنستخدم الهوك يوز ترانزليشنز (useTranslations) في هذا الفانكشن، والذي لا يمكن تعريفه داخل الفنكشن الئيسيه للكمبوننت لانه إيسينك فنكشن وهي لا تقبل  الهوك.
-// لذلك نقوم بتعريفه في فانكشن فرعي داخل الكمبوننت الئيسيه.

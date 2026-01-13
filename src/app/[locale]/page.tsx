@@ -1,32 +1,20 @@
-import Hero from "@/components/home/Hero";
-import WebHostingPlan from "@/components/home/WebHostingPlan";
-import { useTranslations } from "next-intl";
+import BlogHero from "@/components/home/BlogHero";
+import FeaturedPosts from "@/components/home/FeaturedPosts";
+import RecentPosts from "@/components/home/RecentPosts";
+import Newsletter from "@/components/home/Newsletter";
+import CategoriesSection from "@/components/home/CategoriesSection";
+// import { useTranslations } from "next-intl";
 
 export default function HomePage() {
-
-  const t = useTranslations('HomePage');
-
-  /*
-  return (
-    <div>
-      <h1>{t('title')}</h1>
-      <Link href="/about">{t('about')}</Link>
-    </div>
-  */
+  // const t = useTranslations("HomePage");
 
   return (
-    <div>
-      <section>
-        <Hero />
-        <h2 className="text-2xl md:text-3xl font-bold text-center my-8">
-          {t('webHostingPlans')}
-        </h2>
-        <div className="container m-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
-          <WebHostingPlan />
-          <WebHostingPlan />
-          <WebHostingPlan />
-        </div>
-      </section>
+    <div className="min-h-screen">
+      <BlogHero />
+      <FeaturedPosts />
+      <RecentPosts />
+      <CategoriesSection />
+      <Newsletter />
     </div>
   );
 }

@@ -1,14 +1,50 @@
 {
+  "MainTitle": {
+    "blogName": "Tech Blog"
+  },
   "HomePage": {
-    "webHostingPlans": "Choose Your Web Hosting Plan!"
+    "welcome": "Welcome to Our Blog",
+    "subtitle": "Discover the latest technical and educational articles",
+    "featuredPosts": "Featured Posts",
+    "description": "Best handpicked tech articles",
+    "recentPosts": "Recent Posts",
+    "viewAll": "View All",
+    
+  "ArticleCard": {
+    "readTime": "min read",
+    "category": "Category",
+    "readMore": "Read More"
+  },
+
+    "posts": {
+      "React": {
+        "title": "Comprehensive Introduction to React.js",
+        "excerpt": "Learn the basics of React.js with practical projects and best practices to get started with modern user interface development.",
+        "author": "Mohamed Ali",
+        "fronEnd": "Front End"
+      },
+      "NextJS": {
+        "title": "Next.js: Everything You Need to Know",
+        "excerpt": "Discover the features of Next.js and how to use them to build powerful and fast React applications with server-side routing and static generation.",
+        "author": "Sara Ahmed",
+        "fullStack": "Full Stack"
+      },
+      "Typescript": {
+        "title": "TypeScript for Advanced Developers",
+        "excerpt": "Learn about the benefits of using TypeScript in web development and how it can improve code quality and developer experience.",
+        "author": "Ali Hassan",
+        "programmingLanguages": "TypeScript"
+      }
+    }
   },
   "Header": {
-    "logoPart1": "CLOUD",
-    "logoPart2": "HOSTING",
+    "logoPart1": "Tech",
+    "logoPart2": "Blog",
     "home": "Home",
     "articles": "Articles",
-    "about": "About Us",
-    "admin": "Admin Dashboard",
+    "about": "About",
+    "admin": "Admin",
+    "tagline": "Technical Knowledge for Everyone",
     "login": "Login",
     "register": "Register",
     "Logout": {
@@ -16,8 +52,69 @@
       "message": "Are you sure you want to logout?",
       "confirm": "Yes, Logout",
       "cancel": "No, Cancel",
-      "success": "Logged out successfully",
-      "error": "Error logging out. Please try again."
+      "success": "You have been logged out successfully.",
+      "error": "An error occurred while logging out. Please try again."
+    }
+  },
+  "BlogHero": {
+    "title": "Specialized Tech Blog",
+    "subtitle": "Educational content and technical tutorials in programming, development, and latest technologies",
+    "ctaButton": "Explore Articles",
+    "aboutButton": "Learn About Us",
+    "stats": {
+      "articles": "Articles",
+      "authors": "Authors",
+      "categories": "Categories"
+    },
+    "heroText": {
+      "tagline1": "Technical Knowledge",
+      "tagline2": "for Everyone"
+      
+    }
+  },
+
+  "CategoriesSection": {
+    
+    "title": "Browse by Category",
+    "subtitle": "Discover articles in various tech fields",
+    "viewAll": "View All"
+  },
+
+  "RecentPosts": {
+    "title": "Recent Posts",
+    "subtitle": "Stay updated with the latest technical and educational articles",
+    "viewAll": "View All",
+    "readMore": "Read More"
+  },
+
+  "Footer": {
+    "subscribed": "Successfully subscribed! Thank you.",
+    "emailPlaceholder": "Your email address",
+    "subscribing": "Subscribing...",
+    "newsletterText2": "We won't spam you. You can unsubscribe at any time.",
+    "about": "About the Blog",
+    "description": "Technical blog aiming to spread technical and development knowledge in Arabic",
+    "quickLinks": "Quick Links",
+    "home": "Home",
+    "articles": "Articles",
+    "privacy": "Privacy Policy",
+    "terms": "Terms & Conditions",
+    "categories": "Categories",
+    "contact": "Contact Us",
+    "newsletter": "Newsletter",
+    "newsletterText": "Subscribe to get the latest articles",
+    "subscribe": "Subscribe",
+    "copyright": "All rights reserved © 2024 Tech Blog",
+    "logoPart1": "Tech",
+    "logoPart2": "Blog",
+    "categoriesItems": {
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "devops": "DevOps",
+      "cloud": "Cloud",
+      "programming": "Programming",
+      "others": "Others"
     }
   },
   "Hero": {
@@ -41,12 +138,6 @@
       "feature6": "Free Domain Name"
     },
     "planButton": "Get Started"
-  },
-  "Footer": {
-    "footerText": "All rights reserved © 2023 Cloud Hosting. All rights reserved.",
-    "footerLink1": "Privacy Policy",
-    "footerLink2": "Terms of Service",
-    "footerLink3": "Contact Us"
   },
   "RegisterPage": {
     "title": "Create Your Account",
@@ -116,7 +207,9 @@
   },
   "ArticlesPage": {
     "title": "Article Page",
+    "subtitle": "Discover articles in various tech fields",
     "noResults": "No articles found",
+    "noResultsDescription": "Be the first to write an article!",
     "searchPlaceholder": "Enter Article Title to Search...",
     "pagination": {
       "prev": "Previous",
@@ -138,5 +231,4 @@
     "title": "About Us",
     "description": "We are a leading cloud hosting provider, offering fast, secure, and reliable hosting solutions for businesses of all sizes. Our mission is to provide the best hosting experience for our customers."
   }
-  
 }

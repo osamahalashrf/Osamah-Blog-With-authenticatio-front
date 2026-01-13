@@ -135,7 +135,8 @@ exports.Prisma.ArticleScalarFieldEnum = {
   title: 'title',
   description: 'description',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  userId: 'userId'
 };
 
 exports.Prisma.CommentScalarFieldEnum = {
