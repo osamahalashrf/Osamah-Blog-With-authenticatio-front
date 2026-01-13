@@ -19,13 +19,22 @@ import { Article } from "@/generated/prisma";
 export async function GET(request: NextRequest) {
     try {
         const pageNumber = request.nextUrl.searchParams.get("pageNumber") || "1"; // نحصل على رقم الصفحة من باراميترز الرابط
-        
+
         const articles = await prisma.article.findMany({
             skip: ARTICLE_PER_PAGE * (parseInt(pageNumber) - 1), // تخطي المقالات حسب الصفحة
             take: ARTICLE_PER_PAGE, // أخذ عدد المقالات المحدد لكل صفحة
             orderBy: {
                 createdAt: 'desc' // ترتيب المقالات حسب تاريخ الإنشاء تصاعديًا
-            }
+            },
+            include: {
+                user: {
+                    select: {
+                        id: true,
+                        username: true,
+                        email: true,
+                    },
+                },
+            },
         });
 
         return NextResponse.json(articles, { status: 200 }); // إرجاع المقالات كاستجابة JSON مع حالة 200
@@ -55,7 +64,7 @@ export async function POST(request: NextRequest) {
         if (user === null || user.isAdmin === false) {
             return NextResponse.json({ message: 'only admin can create articles, access denied' }, { status: 401 }); // unauthorized
         }
-        
+
         const body = (await request.json()) as CreateArticleDto;
 
         // typeof body.title !== 'string' هذا السطر لتشييك على التايب ممكن نضيفه داخل الإف بإضافة أور
@@ -73,7 +82,9 @@ export async function POST(request: NextRequest) {
             data: {
                 title: body.title,
                 description: body.description,
-                userId: user.id // ربط المقال بالمستخدم الذي أنشأه
+                user: {
+                    connect: { id: user.id }, // ✅ الربط الصحيح مع جدول المستخدمين
+                },
             }
         });
 

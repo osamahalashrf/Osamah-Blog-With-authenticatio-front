@@ -24,7 +24,7 @@ interface ArticleItemProps {
   article: Article & {
     author?: string;
     user?: {
-      name: string;
+      username: string;
     };
   };
   index: number;
@@ -58,7 +58,7 @@ export default function ArticleItem({ article, index }: ArticleItemProps) {
             </div>
             <div className="flex items-center gap-1">
               <User className="w-4 h-4" />
-              <span>{article.user?.name || "مجهول"}</span>
+              <span>{article.user?.username || "مجهول"}</span>
             </div>
             <div className="flex items-center gap-1">
               <Clock className="w-4 h-4" />
