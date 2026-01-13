@@ -29,8 +29,8 @@ export default async function AdminPage({ params }: AdminPageProps) {
 
   return (
     <div className="flex items-center justify-center h-screen px-5 lg:px-20">
-      <div className=" shadow p-4 bg-purple-300 rounded w-full">
-        <h2 className=" text-xl lg:text-2xl text-center text-gray-700 font-semibold mb-4">
+      <div className=" shadow p-4 bg-purple-300 dark:bg-gray-800 rounded w-full">
+        <h2 className=" text-xl lg:text-2xl text-center text-gray-700 dark:text-gray-200 font-semibold mb-4">
           {t("ArticlesForm.title")}
         </h2>
         <AddArticleForm />

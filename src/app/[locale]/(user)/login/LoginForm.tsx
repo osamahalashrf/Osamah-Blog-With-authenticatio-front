@@ -82,7 +82,7 @@ export default function LoginForm() {
           id="email"
           name="email"
           placeholder={t("loginForm.email.placeholder")}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <div className="mb-6">
@@ -93,7 +93,7 @@ export default function LoginForm() {
           id="password"
           name="password"
           placeholder={t("loginForm.password.placeholder")}
-          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-300 leading-tight focus:outline-none focus:shadow-outline"
+          className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 dark:text-gray-200 leading-tight focus:outline-none focus:shadow-outline"
         />
       </div>
       <button

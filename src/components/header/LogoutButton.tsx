@@ -14,7 +14,7 @@ export default function LogoutButton() {
     try {
       // Send logout request to the server
       const response = await axios.get(
-        "http://localhost:3000/api/users/logout"
+        "/api/users/logout"
       );
       if (response.status === 200) {
         // Clear the JWT token from cookies or local storage
