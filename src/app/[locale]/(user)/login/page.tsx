@@ -24,7 +24,7 @@ export default function LoginPage() {
 
   return (
     <section className="container mx-auto flex flex-col items-center justify-center h-screen">
-      <div className="md:w-full p-6 bg-white rounded-lg shadow-md">
+      <div className="md:w-full p-6 bg-white dark:bg-gray-800 rounded-lg shadow-md">
         <h1 className="text-xl md:text-3xl mb-3 font-bold ">
           {t("title")}
         </h1>

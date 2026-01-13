@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { Link } from "@/i18n/navigation";
-import { Home, FileText, Info, Settings, X, ChevronDown } from "lucide-react";
+import { Home, FileText, Info, Settings, X, ChevronDown, BookOpen } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -24,28 +24,25 @@ export default function Navbar({ isAdmin }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navItems = [
-    { 
-      href: "/", 
-      label: t("home"), 
-      icon: Home 
-    },
-    { 
-      href: "/articles", 
-      label: t("articles"), 
-      icon: FileText,
-      dropdown: [
-        { href: "/articles?category=frontend", label: "Frontend" },
-        { href: "/articles?category=backend", label: "Backend" },
-        { href: "/articles?category=mobile", label: "Mobile" },
-      ]
-    },
-    { 
-      href: "/about", 
-      label: t("about"), 
-      icon: Info 
-    },
-  ];
+  // في مصفوفة navItems أضف:
+const navItems = [
+  { href: "/", label: t("home"), icon: Home },
+  { href: "/articles", label: t("articles"), icon: FileText },
+  { 
+    href: "/guide", 
+    label: t("guide.title"), 
+    icon: BookOpen, // تأكد من استيراد الأيقونة
+    dropdown: [
+      { href: "/guide?tab=frontend", label: t("guide.frontend") },
+      { href: "/guide?tab=backend", label: t("guide.backend") },
+      { href: "/guide?tab=mobile", label: t("guide.mobile") },
+      { href: "/guide?tab=devops", label: t("guide.devops") },
+      { href: "/guide?tab=ai", label: t("guide.ai") },
+      { href: "/guide?tab=security", label: t("guide.security") },
+    ]
+  },
+  { href: "/about", label: t("about"), icon: Info },
+];
 
   if (isAdmin) {
     navItems.push({ 

@@ -9,13 +9,11 @@
     "description": "Best handpicked tech articles",
     "recentPosts": "Recent Posts",
     "viewAll": "View All",
-    
-  "ArticleCard": {
-    "readTime": "min read",
-    "category": "Category",
-    "readMore": "Read More"
-  },
-
+    "ArticleCard": {
+      "readTime": "min read",
+      "category": "Category",
+      "readMore": "Read More"
+    },
     "posts": {
       "React": {
         "title": "Comprehensive Introduction to React.js",
@@ -54,6 +52,15 @@
       "cancel": "No, Cancel",
       "success": "You have been logged out successfully.",
       "error": "An error occurred while logging out. Please try again."
+    },
+    "guide": {
+      "title": "Guide",
+      "frontend": "Frontend",
+      "backend": "Backend",
+      "mobile": "Mobile",
+      "devops": "DevOps",
+      "ai": "AI",
+      "security": "Information Security"
     }
   },
   "BlogHero": {
@@ -69,24 +76,19 @@
     "heroText": {
       "tagline1": "Technical Knowledge",
       "tagline2": "for Everyone"
-      
     }
   },
-
   "CategoriesSection": {
-    
     "title": "Browse by Category",
     "subtitle": "Discover articles in various tech fields",
     "viewAll": "View All"
   },
-
   "RecentPosts": {
     "title": "Recent Posts",
     "subtitle": "Stay updated with the latest technical and educational articles",
     "viewAll": "View All",
     "readMore": "Read More"
   },
-
   "Footer": {
     "subscribed": "Successfully subscribed! Thank you.",
     "emailPlaceholder": "Your email address",
@@ -229,6 +231,372 @@
   },
   "AboutPage": {
     "title": "About Us",
-    "description": "We are a leading cloud hosting provider, offering fast, secure, and reliable hosting solutions for businesses of all sizes. Our mission is to provide the best hosting experience for our customers."
+    "subtitle": "Welcome to Tech Blog",
+    "description": "An Arabic platform specialized in publishing technical and development knowledge, aiming to empower Arab developers through high-quality content.",
+    "missionTitle": "Our Mission",
+    "mission": "Our blog aims to spread technical knowledge in Arabic, providing a reliable educational resource for developers and tech enthusiasts in the Arab world.",
+    "visionTitle": "Our Vision",
+    "vision": "To be the leading Arabic platform in technical education, and to contribute to building a generation of distinguished Arab developers globally.",
+    "valuesTitle": "Our Values",
+    "values": [
+      {
+        "title": "Quality",
+        "description": "We ensure accurate, up-to-date, and useful content."
+      },
+      {
+        "title": "Community",
+        "description": "We believe in the power of community and collaboration in knowledge development."
+      },
+      {
+        "title": "Continuous Improvement",
+        "description": "We constantly strive for development and continuous improvement."
+      },
+      {
+        "title": "Transparency",
+        "description": "We work transparently and clearly with our readers and community."
+      }
+    ],
+    "teamTitle": "Our Team",
+    "teamDescription": "We are a group of enthusiastic developers and experts passionate about spreading technical knowledge.",
+    "statsTitle": "Our Numbers",
+    "stats": [
+      {
+        "value": "250+",
+        "label": "Technical Articles"
+      },
+      {
+        "value": "15+",
+        "label": "Technical Experts"
+      },
+      {
+        "value": "50K+",
+        "label": "Monthly Readers"
+      },
+      {
+        "value": "4+",
+        "label": "Years of Experience"
+      }
+    ],
+    "featuresTitle": "Platform Features",
+    "features": [
+      {
+        "title": "Original Arabic Content",
+        "description": "We provide content specifically written for the Arab reader."
+      },
+      {
+        "title": "Detailed Tutorials",
+        "description": "Step by step with practical examples."
+      },
+      {
+        "title": "Latest Technologies",
+        "description": "We follow the latest developments in the programming world."
+      },
+      {
+        "title": "Interactive Community",
+        "description": "A platform for interaction and knowledge exchange."
+      }
+    ],
+    "ctaTitle": "Join Our Community",
+    "ctaDescription": "Register now and start your journey in the world of technology with us.",
+    "ctaButton": "Join Us",
+    "contactTitle": "Contact Us",
+    "contactDescription": "We welcome your questions, suggestions, and look forward to hearing your feedback."
+  },
+  "GuidePage": {
+    "toptitle": "Comprehensive Guide",
+    "title": "Comprehensive Technical Guide",
+    "subtitle": "A complete reference for everything you need in programming and technology",
+    "placeholder": "Search in the guide...",
+    "lastUpdate": "Last update:",
+    "shareGuide": "Share this guide:",
+    "downloadPdf": "Download as PDF",
+    "relatedGuides": "Related Guides",
+    "viewFullGuide": "View full guide for",
+    "guideStats": "Guide Statistics",
+    "tabs": {
+      "title": "Guide Sections",
+      "frontend": "Frontend Development",
+      "backend": "Backend Development",
+      "mobile": "Mobile Development",
+      "devops": "DevOps & Infrastructure",
+      "ai": "Artificial Intelligence",
+      "security": "Information Security"
+    },
+    "content": {
+      "frontend": {
+        "title": "Frontend Development Guide",
+        "intro": "Frontend development is the process of building the visible and interactive part of a website or application that users see and interact with directly.",
+        "whyImportant": "✨ Why is Frontend Important?",
+        "whyImportantPoints": [
+          "First user experience with your product",
+          "Converting visitors into customers",
+          "Improving user retention rates",
+          "Better search engine ranking (SEO)",
+          "Smooth user experience across all devices"
+        ],
+        "coreTechTitle": "Core Technologies",
+        "coreTech": [
+          {
+            "title": "HTML5",
+            "desc": "Page structure and content"
+          },
+          {
+            "title": "CSS3",
+            "desc": "Design and styling"
+          },
+          {
+            "title": "JavaScript",
+            "desc": "Interactivity and logic"
+          }
+        ],
+        "frameworksTitle": "Modern Frameworks",
+        "frameworks": [
+          {
+            "name": "React",
+            "company": "Facebook",
+            "desc": "Library for building user interfaces"
+          },
+          {
+            "name": "Vue.js",
+            "desc": "Progressive framework for building UIs"
+          },
+          {
+            "name": "Angular",
+            "company": "Google",
+            "desc": "Full-featured framework"
+          },
+          {
+            "name": "Next.js",
+            "desc": "React framework with advanced features"
+          }
+        ],
+        "toolsTitle": "Development Tools",
+        "tools": [
+          "VS Code - Text editor",
+          "Git - Version control system",
+          "Webpack - Module bundler",
+          "ESLint - Code quality tool",
+          "Chrome DevTools - Developer tools"
+        ],
+        "bestPractices": "Best Practices",
+        "bestPracticesList": [
+          "Responsive Design",
+          "Performance Optimization",
+          "Clean and maintainable code",
+          "UI Testing",
+          "Accessibility"
+        ]
+      },
+      "backend": {
+        "title": "Backend Development Guide",
+        "intro": "Backend development is the invisible part of the application that runs on the server. It deals with databases, application logic, and servers.",
+        "languagesTitle": "Common Programming Languages",
+        "languages": [
+          "Node.js",
+          "Python",
+          "Java",
+          "PHP",
+          "Ruby",
+          "Go",
+          "C#",
+          "Rust"
+        ],
+        "databasesTitle": "Database Types",
+        "databases": [
+          {
+            "type": "SQL Databases",
+            "examples": "MySQL, PostgreSQL, SQL Server",
+            "desc": "Organized in relational tables"
+          },
+          {
+            "type": "NoSQL Databases",
+            "examples": "MongoDB, Cassandra, Redis",
+            "desc": "Flexible for unstructured data"
+          }
+        ],
+        "apisTitle": "API Types",
+        "apis": [
+          "REST API - Most common",
+          "GraphQL - Efficient data transfer",
+          "SOAP - Legacy but secure",
+          "gRPC - High-performance from Google"
+        ],
+        "securityTitle": "Backend Security Principles",
+        "security": [
+          "User Authentication",
+          "Access Authorization",
+          "SQL Injection protection",
+          "Data encryption",
+          "Rate limiting"
+        ]
+      },
+      "mobile": {
+        "title": "Mobile Development Guide",
+        "intro": "Developing applications for smartphones and tablets using specialized technologies, whether native or hybrid applications.",
+        "nativeTitle": "Native Development",
+        "native": [
+          {
+            "platform": "Android",
+            "language": "Kotlin / Java",
+            "tools": "Android Studio",
+            "desc": "Native apps for Android system"
+          },
+          {
+            "platform": "iOS",
+            "language": "Swift / Objective-C",
+            "tools": "Xcode",
+            "desc": "Native apps for iOS system"
+          }
+        ],
+        "hybridTitle": "Hybrid Development",
+        "hybrid": [
+          {
+            "framework": "React Native",
+            "desc": "Build native apps using JavaScript and React"
+          },
+          {
+            "framework": "Flutter",
+            "desc": "Google's framework using Dart language"
+          },
+          {
+            "framework": "Ionic",
+            "desc": "Build apps using web technologies"
+          }
+        ],
+        "considerationsTitle": "Important Mobile Development Considerations",
+        "considerations": [
+          "User experience on small screens",
+          "App performance and energy efficiency",
+          "Updates and version compatibility",
+          "Cross-platform development",
+          "Installation and update experience"
+        ]
+      },
+      "devops": {
+        "title": "DevOps & Infrastructure Guide",
+        "intro": "DevOps is a practice that combines software development (Dev) and IT operations (Ops) to shorten the development lifecycle and deliver applications with high quality.",
+        "practicesTitle": "Core DevOps Practices",
+        "practices": [
+          "Continuous Integration (CI)",
+          "Continuous Delivery (CD)",
+          "Infrastructure as Code (IaC)",
+          "Monitoring & Logging",
+          "Automation"
+        ],
+        "toolsTitle": "Essential DevOps Tools",
+        "tools": [
+          {
+            "name": "Docker",
+            "desc": "Containers for packaging and running applications"
+          },
+          {
+            "name": "Kubernetes",
+            "desc": "Container orchestration and management"
+          },
+          {
+            "name": "Jenkins",
+            "desc": "Continuous integration server"
+          },
+          {
+            "name": "Terraform",
+            "desc": "Infrastructure as code tool"
+          },
+          {
+            "name": "Ansible",
+            "desc": "Configuration automation and management"
+          }
+        ],
+        "benefitsTitle": "DevOps Benefits",
+        "benefits": [
+          "Faster and more frequent releases",
+          "Faster recovery from failures",
+          "Better team collaboration",
+          "Higher quality with fewer errors",
+          "Lower operational costs"
+        ]
+      },
+      "ai": {
+        "title": "Artificial Intelligence Guide",
+        "intro": "Artificial Intelligence (AI) is the simulation of human intelligence in machines that are programmed to think like humans and mimic their actions.",
+        "mlTitle": "Machine Learning",
+        "ml": "A branch of AI that focuses on building systems that learn from data and improve with experience.",
+        "dlTitle": "Deep Learning",
+        "dl": "A type of machine learning that uses neural networks with many layers to simulate the human brain.",
+        "algorithmsTitle": "Common Algorithms",
+        "algorithms": [
+          {
+            "name": "Neural Networks",
+            "desc": "Simulation of brain neurons"
+          },
+          {
+            "name": "CNN Networks",
+            "desc": "For image and video recognition"
+          },
+          {
+            "name": "RNN Networks",
+            "desc": "For sequential data processing"
+          },
+          {
+            "name": "Reinforcement Learning",
+            "desc": "Learning through rewards"
+          }
+        ],
+        "applicationsTitle": "AI Applications",
+        "applications": [
+          "Voice assistants (Siri, Alexa)",
+          "Self-driving cars",
+          "Recommendation systems (Netflix, Amazon)",
+          "Medical diagnosis",
+          "Image and speech recognition"
+        ]
+      },
+      "security": {
+        "title": "Information Security Guide",
+        "intro": "Information security is the practice of protecting information from unauthorized access, disclosure, modification, or destruction.",
+        "principlesTitle": "Information Security Principles",
+        "principles": [
+          "Confidentiality",
+          "Integrity",
+          "Availability",
+          "Authentication",
+          "Non-repudiation"
+        ],
+        "threatsTitle": "Common Security Threats",
+        "threats": [
+          {
+            "name": "Injection Attacks",
+            "desc": "Injecting malicious code into applications"
+          },
+          {
+            "name": "Buffer Overflow Attacks",
+            "desc": "Overwriting memory buffers"
+          },
+          {
+            "name": "DDoS Attacks",
+            "desc": "Flooding servers with fake requests"
+          },
+          {
+            "name": "Phishing Attacks",
+            "desc": "Deceptive attempts to obtain sensitive information"
+          }
+        ],
+        "protectionTitle": "Protection Methods",
+        "protection": [
+          "Firewalls",
+          "Intrusion Detection Systems (IDS/IPS)",
+          "Encryption",
+          "Multi-factor authentication",
+          "Regular backups"
+        ],
+        "bestPracticesTitle": "Security Best Practices",
+        "bestPractices": [
+          "Regular software updates",
+          "Using strong passwords",
+          "Employee security awareness",
+          "Regular penetration testing",
+          "Principle of least privilege"
+        ]
+      }
+    }
   }
 }
