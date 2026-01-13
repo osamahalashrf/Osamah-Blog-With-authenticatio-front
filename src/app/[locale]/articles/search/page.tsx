@@ -27,8 +27,8 @@ export default async function SearchPage({
             </span>
           </h1>
           <div className={`flex items-center justify-center flex-wrap gap-7`}>
-            {articles.map((item) => (
-              <ArticleItem key={item.id} article={item} />
+            {articles.map((item, index) => (
+              <ArticleItem key={item.id} article={item} index={index} />
             ))}
           </div>
         </>
