@@ -39,7 +39,7 @@ export default function LoginForm() {
         try {
             setLoading(true);
             // Send login request to the server
-            const response = await axios.post(`http://localhost:3000/api/users/login`, { email, password });
+            const response = await axios.post(`/api/users/login`, { email, password });
             if (response.status === 200) {
                router.replace(`/${locale}/`);
                setLoading(false);

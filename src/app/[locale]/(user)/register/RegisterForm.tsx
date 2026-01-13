@@ -41,8 +41,7 @@ export default function RegisterForm() {
     try {
       setLoading(true);
       // Send register request to the server
-      await axios.post(
-        `http://localhost:3000/api/users/register`,
+      await axios.post(`/api/users/register`,
         { username, email, password }
       );
       
