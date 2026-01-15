@@ -1,12 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { ArrowRight, BookOpen, Users, FileText } from "lucide-react";
 import Link from "next/link";
 
 export default function BlogHero() {
   const t = useTranslations("BlogHero");
+  const locale = useLocale();
 
   const stats = [
     { icon: FileText, value: "250+", label: t("stats.articles") },
@@ -60,11 +61,11 @@ export default function BlogHero() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4 justify-center mb-16"
           >
-            <Link href="/articles" className="btn-primary inline-flex items-center gap-2">
+            <Link href={`/${locale}/articles`} className="btn-primary inline-flex items-center gap-2">
               {t("ctaButton")}
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href="/about" className="btn-secondary">
+            <Link href={`/${locale}/about`} className="btn-secondary">
               {t("aboutButton")}
             </Link>
           </motion.div>

@@ -58,17 +58,14 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 
-  /* Smooth scrolling */
   html {
     scroll-behavior: smooth;
   }
 
-  /* Selection color */
   ::selection {
     @apply bg-primary/20 text-primary;
   }
 
-  /* Custom scrollbar */
   ::-webkit-scrollbar {
     width: 10px;
   }
@@ -91,10 +88,6 @@
     @apply bg-gradient-to-br from-blue-50 via-white to-indigo-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900;
   }
 
-  .card-hover {
-    @apply transition-all duration-300 hover:scale-[1.02] hover:shadow-xl;
-  }
-
   .text-gradient {
     @apply bg-gradient-to-r from-primary to-purple-600 bg-clip-text text-transparent;
   }
@@ -110,29 +103,91 @@
            hover:bg-secondary/80 transition-all duration-300 
            hover:shadow-md active:scale-95;
   }
+
+  /* تحسينات للأزرار على الأجهزة المحمولة */
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
-/* Loading animations */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+/* ============================================
+   تحسينات خاصة للأجهزة المحمولة
+   ============================================ */
+
+@media (max-width: 768px) {
+  html, body {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-overflow-scrolling: touch;
+  }
 }
 
-.float-animation {
-  animation: float 3s ease-in-out infinite;
+/* ============================================
+   تحسينات خاصة للأجهزة اللوحية (آيباد)
+   ============================================ */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .mobile-menu-panel {
+    max-width: 380px;
+  }
 }
 
-@keyframes shimmer {
-  0% { background-position: -1000px 0; }
-  100% { background-position: 1000px 0; }
+/* ============================================
+   إصلاحات خاصة للقائمة الجانبية
+   ============================================ */
+
+.mobile-menu-panel {
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.shimmer {
-  background: linear-gradient(90deg, 
-    transparent 25%, 
-    rgba(255,255,255,0.5) 50%, 
-    transparent 75%
-  );
-  background-size: 1000px 100%;
-  animation: shimmer 2s infinite linear;
+.dark .mobile-menu-panel {
+  box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
+}
+
+/* إصلاح مشكلة التمرير على iOS */
+@supports (-webkit-touch-callout: none) {
+  .mobile-menu-panel {
+    height: -webkit-fill-available;
+  }
+}
+
+/* ============================================
+   إصلاحات القائمة الجانبية للموبايل
+   ============================================ */
+
+#mobile-menu-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 9998;
+}
+
+#mobile-menu-root > * {
+  pointer-events: auto;
+}
+
+/* إصلاح ارتفاع القائمة الجانبية على iOS */
+@supports (-webkit-touch-callout: none) {
+  .h-screen {
+    height: -webkit-fill-available;
+  }
+}
+
+/* إصلاح مشكلة viewport على الأجهزة المحمولة */
+@media (max-width: 768px) {
+  .mobile-menu-panel {
+    height: 100dvh !important;
+  }
+  
+  /* منع التمرير عند فتح القائمة */
+  body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+  }
 }

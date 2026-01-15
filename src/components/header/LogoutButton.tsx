@@ -1,28 +1,28 @@
 "use client";
 
-import { useLocale, useTranslations } from "next-intl";
+import { useTranslations } from "next-intl";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
+import { useState } from "react";
 
 export default function LogoutButton() {
   const t = useTranslations("Header.Logout");
   const router = useRouter();
-  const locale = useLocale(); // الحصول على اللغة النشطة
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleLogout = async () => {
     try {
-      // Send logout request to the server
-      const response = await axios.get(
-        "/api/users/logout"
-      );
+      setIsLoading(true);
+      const response = await axios.get("/api/users/logout");
       if (response.status === 200) {
-        // Clear the JWT token from cookies or local storage
-        document.cookie =
-          "jwtToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        document.cookie = "jwtToken=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
         toast.success(t("success"));
-        router.replace(`/${locale}/`); // Redirect to home page after logout
-        router.refresh(); // Refresh the page to reflect the logout state
+        router.refresh();
+        setTimeout(() => {
+          router.push("/");
+        }, 500);
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
@@ -30,15 +30,22 @@ export default function LogoutButton() {
       } else {
         toast.error(t("error"));
       }
+    } finally {
+      setIsLoading(false);
     }
   };
 
   return (
     <button
-      className="btn text-sm md:text-lg bg-blue-600 text-white px-2 md:px-4 py-2 rounded-lg hover:bg-blue-800 transition duration-300"
       onClick={handleLogout}
+      disabled={isLoading}
+      className="hidden md:flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors disabled:opacity-50"
     >
-      {t("title")}
+      <LogOut className="w-4 h-4" />
+      <span>{t("title")}</span>
+      {isLoading && (
+        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+      )}
     </button>
   );
 }

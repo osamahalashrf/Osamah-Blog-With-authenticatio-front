@@ -1,3 +1,4 @@
+// layout.tsx
 import {NextIntlClientProvider, hasLocale} from 'next-intl';
 import {routing} from '@/i18n/routing';
 import { Metadata } from 'next';
@@ -7,6 +8,7 @@ import Footer from '@/components/Footer';
 import "../globals.css";
 import { notFound } from 'next/navigation';
 import { ThemeProvider } from '@/providers/ThemeProvider';
+// import { AuthProvider } from '@/contexts/AuthContext';
 
 export const metadata: Metadata = {
   title: "مدونة التقنية - المعرفة التقنية للجميع",
@@ -35,7 +37,9 @@ export default async function LocaleLayout({
           disableTransitionOnChange
         >
           <NextIntlClientProvider locale={locale}>
-            <Header />
+            <div className="relative z-10">
+              <Header />
+            </div>
             <ToastContainer
               position="top-center"
               autoClose={3000}
@@ -47,8 +51,10 @@ export default async function LocaleLayout({
               draggable
               pauseOnHover
               theme="colored"
+              className="z-[10000]"
             />
-            <main className="min-h-screen">
+            <div id="mobile-menu-root" />
+            <main className="min-h-screen relative z-0">
               {children}
             </main>
             <Footer />
